@@ -59,9 +59,16 @@ function showMilestone(id) {
   const name = document.querySelector(".title");
   const details = document.querySelector(".details");
 
-  milestoneImage.src=milestoneData[id].image;
-  name.innerText=milestoneData[id].name;
-  details.innerText=milestoneData[id].description;
+  milestoneImage.style.opacity = "0";
+  milestoneImage.src = milestoneData[id].image;
+  name.innerText = milestoneData[id].name;
+  details.innerText = milestoneData[id].description;
 }
+
+//listen for PHero image load
+const milestoneImage = document.querySelector(".milestoneImage");
+milestoneImage.onLoad = function () {
+  this.style.opacity = "1";
+};
 
 loadMilestones();
