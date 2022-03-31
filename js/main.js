@@ -32,9 +32,18 @@ function loadMilestones() {
 
 function openMilestone(milestoneElement) {
   const currentPanel = milestoneElement.parentNode.nextElementSibling;
-  // const shownPanel = document.querySelector(".show");
+  const shownPanel = document.querySelector(".show");
+  const active = document.querySelector(".active");
 
-  // shownPanel.classList.remove("show");
+  //first remove previous active class if any [other than the clicked one]
+
+  if (active && !milestoneElement.classList.contains("active")) {
+    active.classList.remove("active");
+  }
+  milestoneElement.classList.toggle("active");
+
+  if (!currentPanel.classList.contains("show") && shownPanel)
+    shownPanel.classList.remove("show");
   currentPanel.classList.toggle("show");
 }
 
